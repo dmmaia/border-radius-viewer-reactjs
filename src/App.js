@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+  const [borderRadiusValue, setBorderRadius] = useState();
+
+  function changeRadius(event){
+    event.preventDefault();
+
+    let box = document.getElementById("box-tester");
+    box.style.borderRadius = borderRadiusValue;
+    
+    console.log(borderRadiusValue)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id = "box-tester" />
+      <form onSubmit={changeRadius}>
+        <input type="number" 
+          value={borderRadiusValue}
+          onChange={event => setBorderRadius(event.target.value)}
+        />
+        <input type="submit" value="Apply"/>
+      </form>
     </div>
   );
 }
