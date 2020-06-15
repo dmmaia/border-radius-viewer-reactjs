@@ -8,7 +8,7 @@ function App() {
     event.preventDefault();
 
     let box = document.getElementById("box-tester");
-    box.style.borderRadius = borderRadiusValue;
+    box.style.borderRadius = `${borderRadiusValue}px`;
     
     console.log(borderRadiusValue)
   }
@@ -20,6 +20,7 @@ function App() {
         <input type="number" 
           value={borderRadiusValue}
           onChange={event => setBorderRadius(event.target.value)}
+          placeholder="px"
         />
         <input type="submit" value="Apply"/>
       </form>
